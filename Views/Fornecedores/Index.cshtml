@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DivTech.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Fornecedores</h1>
+
+<p>
+    <a class="link-info" asp-action="Create">Cadastrar fornecedor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="table table-bordered table-striped table-primary" style="width:100%">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CNPJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialty)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
